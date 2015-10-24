@@ -42,4 +42,7 @@ app.get('/', function(req,res){
 app.listen(3000)
 console.log('run in 3000')
 ```
-
+####6.ลง mongoose
+```
+npm install mongoose --save
+```
