@@ -66,3 +66,11 @@ app.get('/', function(req,res){
 app.listen(3000)
 console.log('run in 3000')
 ```
+####8. สร้างโฟลเดอร์ขึ้นมาใหม่ ระดับเดียวกับไฟล์ server.js ชื่อ routes และ models
+####9. สร้างไฟล์ใน routes ชื่อ api.js
+####10. สร้างไฟล์ใน models ชื่อ grade.js
+####11. ลง
+```sh
+npm install node-restful --save
+```
+####12. 
