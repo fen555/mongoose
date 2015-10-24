@@ -121,3 +121,56 @@ console.log('run in 3000')
 ```sh
 http://localhost:3000/api/grade
 ```
+####16. สร้างโฟลเดอร์ชื่อ public แล้วสร้างไฟล์คือ index.html ในโฟลเดอร์ public
+####17. เปลี่ยนโค้ดในไฟล์ server.js เป็น
+```sh
+var express = require('express')
+var bodyParser = require('body-parser')
+var mongoose = require('mongoose')
+
+mongoose.connect('mongodb://localhost/db')
+
+var app = express()
+
+app.use(bodyParser.urlencoded({extended : true}))
+app.use(bodyParser.json())
+
+app.get('/' , function(req,res){
+ 	res.sendFile(__dirname + '/public/index.html');
+})
+
+app.use('/api',require('./routes/api'))
+
+
+app.listen(3000)
+console.log('run in 3000')
+```
+####18. เพิ่มโค้ดใน index.html เป็น
+```sh
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+  <script src="app.js"></script>
+  <meta charset="utf-8">
+  <title>CoFen</title>
+</head>
+<body ng-controller="AppController as scope">
+  {{scope.name}}
+</body>
+</html>
+```
+####19. สร้างไฟล์ app.js ใน public แล้วเพิ่มโค้ด
+```sh
+angular.module('app', [])
+  .controller('AppController', function () {
+    var scope = this
+    scope.name = 'CoFen'
+  })
+```
+####20. สร้างไฟล์ app.css ใน public 
+####21.
