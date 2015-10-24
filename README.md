@@ -73,4 +73,18 @@ console.log('run in 3000')
 ```sh
 npm install node-restful --save
 ```
-####12. 
+####12. เพิ่มโค้ดใน grade.js
+```sh
+var restful = require('node-restful')
+var mongoose = restful.mongoose
+
+var grade = new mongoose.Schema({
+
+	name : String,
+	grade : String
+
+})
+
+module.exports = restful.model('grade',gradeSchema)
+```
+####13. 
