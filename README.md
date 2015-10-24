@@ -85,6 +85,36 @@ var grade = new mongoose.Schema({
 
 })
 
-module.exports = restful.model('grade',gradeSchema)
+module.exports = restful.model('grade',grade)
 ```
-####13. 
+####13. ใน api.js
+```sh
+var express = require('express')
+var router = express.Router()
+
+var Grade = require('../models/grade')
+
+Grade.methods(['get','put','post','delete'])
+Grade.register(router, '/grade')
+
+module.exports = router
+```
+####14. ใน server.js ให้เปลี่ยนโค้ดเป็น
+```sh
+var express = require('express')
+var bodyParser = require('body-parser')
+var mongoose = require('mongoose')
+
+mongoose.connect('mongodb://localhost/db')
+
+var app = express()
+
+app.use(bodyParser.urlencoded({extended : true}))
+app.use(bodyParser.json())
+
+app.use('/api',require('./routes/api'))
+
+app.listen(3000)
+console.log('run in 3000')
+```
+####15. 
