@@ -117,4 +117,7 @@ app.use('/api',require('./routes/api'))
 app.listen(3000)
 console.log('run in 3000')
 ```
-####15. 
+####15. ดู api ของเราได้ที่
+```sh
+http://localhost:3000/api/grade
+```
